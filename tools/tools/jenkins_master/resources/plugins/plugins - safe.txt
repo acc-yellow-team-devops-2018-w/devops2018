@@ -1,0 +1,6 @@
+matrix-auth:latest
+swarm:latest
+prometheus:latest
+ldap:latest
+workflow-job:latest
+git:latest

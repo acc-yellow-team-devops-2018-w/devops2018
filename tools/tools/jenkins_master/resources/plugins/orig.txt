@@ -1,0 +1,6 @@
+matrix-auth:1.4
+swarm:2.2
+prometheus:1.0.6
+ldap:1.13
+workflow-job:2.11
+git:3.3.0
