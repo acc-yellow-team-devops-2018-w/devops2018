@@ -72,6 +72,7 @@ echo "Tryinging to bring up docker compose"
 	cd ..
 	cd vagrant
 	cd tools/tools/
+	touch logs/biglog.log 
 	sudo docker-compose up --force-recreate >logs/biglog.log -d
 echo "Installing java8"
 	cd  res
