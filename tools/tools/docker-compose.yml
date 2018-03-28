@@ -18,6 +18,7 @@ services:
       - "8080:8080"
     links:
       - grafana
+    restart: on-failure:2
 
   openldap:
     container_name: openldap
@@ -28,6 +29,7 @@ services:
       - LDAP_ORGANISATION=MVP
       - LDAP_DOMAIN=mvp.org
       - LDAP_ADMIN_PASSWORD=admin
+    restart: on-failure:2
   
   jenkins:
     build: jenkins_master/
@@ -36,6 +38,7 @@ services:
       - custom
     environment:
       - JENKINS_OPTS=--prefix=/jenkins
+    restart: on-failure:2
 
   jenkins_slave:
     build: jenkins_slave/
@@ -53,6 +56,7 @@ services:
       - "SLAVE_NAME=test"
       - "SLAVE_LABELS=test"
       - "SLAVE_MODE=exclusive"
+    restart: on-failure:2
   
   gogs:
     image: gogs/gogs:0.11.4
@@ -63,6 +67,7 @@ services:
       - "3500"
     volumes:
       - "./gogs/conf:/data/gogs/conf"
+    restart: on-failure:2
 
   prometheus:
     image: prom/prometheus:v1.5.2
@@ -74,12 +79,14 @@ services:
     command:
       - "-web.external-url=http://127.0.0.1:8080/prometheus"
       - "-config.file=/etc/prometheus/prometheus.yml"
+    restart: on-failure:2
 
   node_exporter:
     image: prom/node-exporter:v0.13.0
     container_name: node_exporter
     networks:
       - custom
+    restart: on-failure:2
 
   grafana:
     image: grafana/grafana:4.3.2
@@ -94,3 +101,4 @@ services:
       - prometheus
     expose:
       - "3000"
+    restart: on-failure:2

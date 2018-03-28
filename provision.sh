@@ -64,4 +64,11 @@ echo "Configuring swap space..."
 	fallocate -l 2G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && \
 	echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
 
+echo "Tryinging to bring up docker compose"
+	cd ..
+	cd ..
+	cd vagrant
+	cd tools/tools/
+	sudo docker-compose up
+
 echo "Done!"
