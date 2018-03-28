@@ -59,7 +59,7 @@ services:
     restart: on-failure:2
   
   gogs:
-    image: gogs/gogs:0.11.4
+    image: gogs/gogs:latest
     container_name: gogs
     networks:
       - custom

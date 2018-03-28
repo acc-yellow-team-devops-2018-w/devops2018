@@ -72,6 +72,13 @@ echo "Tryinging to bring up docker compose"
 	cd ..
 	cd vagrant
 	cd tools/tools/
-	sudo docker-compose up
+	sudo docker-compose up --force-recreate >logs/biglog.log -d
+echo "Installing java8"
+	cd  res
+	sudo cp java-8-debian.list /etc/apt/sources.list.d/
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+	sudo apt-get update > /dev/null
+	sudo apt-get install oracle-java8-installer > /dev/null
+	
 
 echo "Done!"
