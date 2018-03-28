@@ -72,7 +72,7 @@ echo "Tryinging to bring up docker compose"
 	cd ..
 	cd vagrant
 	cd tools/tools/
-	mkdir logs
+	mkdir -p logs
 	touch logs/biglog.log 
 	sudo docker-compose up --force-recreate >logs/biglog.log -d
 echo "Installing java8"
@@ -80,7 +80,6 @@ echo "Installing java8"
 	sudo cp java-8-debian.list /etc/apt/sources.list.d/
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
 	sudo apt-get update > /dev/null
-	sudo apt-get install oracle-java8-installer -y -y> /dev/null
 	sudo apt-get install -y python-software-properties debconf-utils
 	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
 	sudo apt-get install -y oracle-java8-installer 
