@@ -60,7 +60,7 @@ services:
     networks:
       - custom
     expose:
-      - "3000"
+      - "3500"
     volumes:
       - "./gogs/conf:/data/gogs/conf"
 
