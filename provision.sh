@@ -51,6 +51,9 @@ echo "Configuring docker..."
 echo "Installing Docker Compose..."
 	pip install docker-compose > /dev/null
 
+echo "Installing maven..."
+	apt-get install maven -y > /dev/null
+
 echo "Creating jenkins directory..."
 	mkdir /home/vagrant/jenkins/
 
